@@ -1,0 +1,19 @@
+CREATE SCHEMA PUBLIC AUTHORIZATION DBA
+CREATE MEMORY TABLE PUBLIC.employees(id VARCHAR(255) PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), department VARCHAR(255), code VARCHAR(255))
+CREATE MEMORY TABLE PUBLIC.accounts(id VARCHAR(255) PRIMARY KEY, name VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, email VARCHAR(255), type VARCHAR(255))
+CREATE MEMORY TABLE PUBLIC.Availabilities(id VARCHAR(255) PRIMARY KEY,employeeId VARCHAR(255) NOT NULL, date VARCHAR(255) NOT NULL, weekDay VARCHAR(10), startTime VARCHAR(255) NOT NULL, endTime VARCHAR(255) NOT NULL,preferences VARCHAR(1024), avoids VARCHAR(1024),arranged BOOLEAN NOT NULL)
+CREATE USER SA PASSWORD DIGEST 'd41d8cd98f00b204e9800998ecf8427e'
+ALTER USER SA SET LOCAL TRUE
+CREATE SCHEMA PUBLIC AUTHORIZATION DBA
+SET DATABASE DEFAULT INITIAL SCHEMA PUBLIC
+GRANT DBA TO SA
+SET WRITE_DELAY 20
+SET FILES SCALE 32
+SET SCHEMA PUBLIC
+INSERT INTO employees VALUES ('1', 'Alice', 'alice@test.com', 'developer', '1A3B5C')
+INSERT INTO employees VALUES ('2', 'Bob', 'bob@test.com', 'developer', '2D4F6H')
+INSERT INTO employees VALUES ('3', 'Charlie', 'charlie@test.com', 'developer', '3G5I7K')
+INSERT INTO employees VALUES ('4', 'David', 'david@test.com', 'developer', '4J6L8M')
+INSERT INTO employees VALUES ('5', 'Eve', 'eve@test.com', 'developer', '5N7P9Q')
+INSERT INTO accounts VALUES ('1', 'manager', 'manager', 'test@test.com', 'manager')
+INSERT INTO accounts VALUES ('2', 'employee', 'employee', 'test@test.com', 'employee')
